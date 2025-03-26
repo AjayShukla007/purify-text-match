@@ -1,0 +1,13 @@
+# This file specifies which files and directories should be ignored when publishing the package to npm.
+node_modules/
+dist/
+*.log
+*.tsbuildinfo
+/tests/
+*.test.ts
+/.gitignore
+/.npmignore
+/README.md
+/jest.config.js
+/tsconfig.json
+/package.json

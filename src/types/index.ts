@@ -7,16 +7,32 @@
  */
 export interface ProcessOptions {
   /**
-   * Whether to throw an error on no match (default: true)
-   * If false, returns null on no match instead
+   * Whether to throw an error on no match
+   * @default true
    */
   throwOnNoMatch?: boolean;
   
   /**
-   * Case sensitivity for matching
-   * Default is false (case insensitive)
+   * Custom error message when no match is found
    */
-  caseSensitive?: boolean;
+  errorMessage?: string;
+  
+  /**
+   * Whether to use strict matching (exact match with case sensitivity)
+   * When true, skips sanitization and requires exact matches
+   * @default true
+   */
+  strictMatching?: boolean;
+  
+  /**
+   * Sanitization options to apply
+   */
+  sanitizeOptions?: SanitizeOptions;
+  
+  /**
+   * Matching options to apply
+   */
+  matchOptions?: MatchOptions;
 }
 
 /**
@@ -32,13 +48,97 @@ export interface ProcessResult {
    * Whether the string matched any items in the match array
    */
   matched: boolean;
+  
+  /**
+   * Original input string
+   */
+  original?: string;
+  
+  /**
+   * Matched string from the array (if any)
+   */
+  matchedWith?: string;
 }
 
+/**
+ * Options for string sanitization
+ */
 export interface SanitizeOptions {
-    removeSpecialChars?: boolean;
-    toLowerCase?: boolean;
+  /**
+   * Remove special characters like @, #, $, etc.
+   * @default true
+   */
+  removeSpecialChars?: boolean;
+  
+  /**
+   * Convert the string to uppercase
+   * @default true
+   */
+  convertToUpperCase?: boolean;
+  
+  /**
+   * Remove all whitespace characters
+   * @default true
+   */
+  removeWhitespace?: boolean;
+  
+  /**
+   * Keep numeric digits during special character removal
+   * @default true
+   */
+  preserveNumbers?: boolean;
+  
+  /**
+   * Trim whitespace from beginning and end
+   * @default true
+   */
+  trimEdges?: boolean;
 }
 
+/**
+ * Options for string matching
+ */
+export interface MatchOptions {
+  /**
+   * Whether to use fuzzy matching
+   * @default false
+   */
+  fuzzyMatch?: boolean;
+  
+  /**
+   * Whether matching is case-sensitive
+   * @default false
+   */
+  caseSensitive?: boolean;
+  
+  /**
+   * Whether to sanitize the input string before matching
+   * @default true
+   */
+  sanitizeInput?: boolean;
+  
+  /**
+   * Whether to use strict matching (exact match with case sensitivity)
+   * When true, overrides caseSensitive to true and sanitizeInput to false
+   * @default false
+   */
+  strictMatching?: boolean;
+  
+  /**
+   * Maximum Levenshtein distance for fuzzy matching
+   * 0 means exact match only
+   * @default 0
+   */
+  maxLevenshteinDistance?: number;
+  
+  /**
+   * Sanitization options to apply before matching
+   */
+  sanitizeOptions?: SanitizeOptions;
+}
+/* 
+    @author: Ajay shukla
+*/
 export interface MatchResult {
     matched: boolean;
     sanitizedString: string;

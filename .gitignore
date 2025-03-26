@@ -12,6 +12,8 @@ lib/
 
 # Test coverage
 coverage/
+test-project/
+test-matcher.ts
 
 # Environment variables
 .env

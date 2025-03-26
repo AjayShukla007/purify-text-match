@@ -1,0 +1,47 @@
+{
+  "name": "purify-text-match",
+  "version": "1.0.0",
+  "description": "A lightweight, high-performance string sanitization and matching utility that works across all Node.js environments including NestJS, Next.js, Express and serverless functions",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "prepublishOnly": "npm run build && npm run test"
+  },
+  "keywords": [
+    "sanitization",
+    "string",
+    "validation",
+    "matching",
+    "text",
+    "purify",
+    "clean",
+    "lightweight"
+  ],
+  "author": "Ajay Shukla",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AjayShukla007/purify-text-match.git"
+  },
+  "homepage": "https://github.com/AjayShukla007/purify-text-match#readme",
+  "bugs": {
+    "url": "https://github.com/AjayShukla007/purify-text-match/issues"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^18.15.11",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4",
+    "eslint": "^8.38.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

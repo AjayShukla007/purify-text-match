@@ -2,7 +2,8 @@
 
 [![npm version](https://img.shields.io/npm/v/purify-text-match.svg)](https://www.npmjs.com/package/purify-text-match)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![npm downloads](https://img.shields.io/npm/dm/purify-text-match.svg)](https://www.npmjs.com/package/purify-text-match)
+<!-- will uncomment this in future -->
+<!-- [![npm downloads](https://img.shields.io/npm/dm/purify-text-match.svg)](https://www.npmjs.com/package/purify-text-match) -->
 
 A lightweight and efficient package for sanitizing text and matching it against expected values. Perfect for user input validation, data normalization, and text comparison.
 

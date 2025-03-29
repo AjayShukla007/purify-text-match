@@ -33,6 +33,60 @@ export interface ProcessOptions {
    * Matching options to apply
    */
   matchOptions?: MatchOptions;
+
+  /**
+   * Remove special characters like @, #, $, etc.
+   * @default true
+   */
+  removeSpecialChars?: boolean;
+  
+  /**
+   * Convert the string to uppercase
+   * @default false
+   */
+  convertToUpperCase?: boolean;
+  
+  /**
+   * Remove all whitespace characters
+   * @default false
+   */
+  removeWhitespace?: boolean;
+  
+  /**
+   * Keep numeric digits during special character removal
+   * @default true
+   */
+  preserveNumbers?: boolean;
+  
+  /**
+   * Trim whitespace from beginning and end
+   * @default true
+   */
+  trimEdges?: boolean;
+
+  /**
+   * Preserve the original case of characters
+   * @default true
+   */
+  preserveCase?: boolean;
+
+  /**
+   * Preserve spaces in the text
+   * @default true
+   */
+  preserveSpaces?: boolean;
+
+  /**
+   * Preserve hyphens in the text
+   * @default false
+   */
+  preserveHyphens?: boolean;
+
+  /**
+   * Preserve underscores in the text
+   * @default false
+   */
+  preserveUnderscores?: boolean;
 }
 
 /**
@@ -72,13 +126,13 @@ export interface SanitizeOptions {
   
   /**
    * Convert the string to uppercase
-   * @default true
+   * @default false
    */
   convertToUpperCase?: boolean;
   
   /**
    * Remove all whitespace characters
-   * @default true
+   * @default false
    */
   removeWhitespace?: boolean;
   
@@ -93,6 +147,30 @@ export interface SanitizeOptions {
    * @default true
    */
   trimEdges?: boolean;
+
+  /**
+   * Preserve the original case of characters
+   * @default true
+   */
+  preserveCase?: boolean;
+
+  /**
+   * Preserve spaces in the text
+   * @default true
+   */
+  preserveSpaces?: boolean;
+
+  /**
+   * Preserve hyphens in the text
+   * @default false
+   */
+  preserveHyphens?: boolean;
+
+  /**
+   * Preserve underscores in the text
+   * @default false
+   */
+  preserveUnderscores?: boolean;
 }
 
 /**

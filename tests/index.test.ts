@@ -46,8 +46,8 @@ describe('processString', () => {
   });
   
   test('should sanitize string when no match array provided', () => {
-    expect(processString('ORANGE CAT')).toBe('ORANGECAT');
-    expect(processString('orange-cat')).toBe('ORANGECAT');
+    expect(processString('ORANGE CAT')).toBe('ORANGE CAT');
+    expect(processString('orange-cat')).toBe('orangecat');
   });
 });
 

@@ -2,10 +2,14 @@ import { SanitizeOptions } from './types';
 
 const DEFAULT_OPTIONS: SanitizeOptions = {
   removeSpecialChars: true,
-  convertToUpperCase: true,
-  removeWhitespace: true,
+  convertToUpperCase: false,  // Changed to false since preserveCase is true by default
+  removeWhitespace: false,    // Changed to false since preserveSpaces is true by default
   preserveNumbers: true,
-  trimEdges: true
+  trimEdges: true,
+  preserveCase: true,         // New option with default true
+  preserveSpaces: true,       // New option with default true
+  preserveHyphens: false,     // New option with default false
+  preserveUnderscores: false  // New option with default false
 };
 
 /**
@@ -25,17 +29,32 @@ export function sanitizeString(
   let result = input.toString();
   
   // Apply transformations based on options
-  if (opts.convertToUpperCase) {
+  // If preserveCase is false or convertToUpperCase is true
+  if ((opts.preserveCase === false) || opts.convertToUpperCase) {
     result = result.toUpperCase();
   }
   
   if (opts.removeSpecialChars) {
-    // Updated regex pattern to consider underscore as a special character
-    const pattern = opts.preserveNumbers ? /[^\w\d\s]|_/gi : /[^\w\s]|_/gi;
+    // Create a pattern based on what to preserve
+    let pattern;
+    if (opts.preserveHyphens && opts.preserveUnderscores) {
+      // Preserve both hyphens and underscores
+      pattern = opts.preserveNumbers ? /[^\w\d\s\-_]|[^\w\d\s\-_]/gi : /[^\w\s\-_]|[^\w\s\-_]/gi;
+    } else if (opts.preserveHyphens) {
+      // Preserve only hyphens
+      pattern = opts.preserveNumbers ? /[^\w\d\s\-]|_/gi : /[^\w\s\-]|_/gi;
+    } else if (opts.preserveUnderscores) {
+      // Preserve only underscores
+      pattern = opts.preserveNumbers ? /[^\w\d\s]|[^\w\d\s_]/gi : /[^\w\s]|[^\w\s_]/gi;
+    } else {
+      // Don't preserve hyphens or underscores
+      pattern = opts.preserveNumbers ? /[^\w\d\s]|_|-/gi : /[^\w\s]|_|-/gi;
+    }
     result = result.replace(pattern, '');
   }
   
-  if (opts.removeWhitespace) {
+  // If preserveSpaces is false or removeWhitespace is true
+  if ((opts.preserveSpaces === false) || opts.removeWhitespace) {
     result = result.replace(/\s+/g, '');
   }
   

@@ -1,6 +1,6 @@
 {
   "name": "purify-text-match",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A lightweight, high-performance string sanitization and matching utility that works across all Node.js environments including NestJS, Next.js, Express and serverless functions",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

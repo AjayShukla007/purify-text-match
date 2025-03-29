@@ -290,6 +290,43 @@ processStringAdvanced('Product-ID123', ['product-id123'], {
 // { matched: true, sanitized: 'Product-ID123', original: 'Product-ID123', matchedWith: 'product-id123' }
 ```
 
+## Compatibility
+
+`purify-text-match` is designed to work seamlessly across virtually all JavaScript environments:
+
+### Server-side
+- Node.js (v14.0.0+)
+- Express.js applications
+- NestJS applications
+- Serverless Functions (AWS Lambda, Vercel, Netlify, etc.)
+- Deno (with ESM imports)
+- Bun runtime
+
+### Frontend Frameworks
+- React
+- Next.js (server & client components)
+- Vue.js
+- Angular
+- Svelte/SvelteKit
+- Solid.js
+- Remix
+- Gatsby
+
+### Mobile Development
+- React Native
+- Ionic Framework
+- Capacitor
+- NativeScript
+
+### Build System Compatibility
+- Webpack
+- Rollup
+- esbuild
+- Vite
+- Parcel
+
+The package contains pure JavaScript utilities with zero dependencies, making it highly portable across any JavaScript runtime.
+
 ## About
 
 
@@ -342,6 +379,8 @@ Please include the following details:
 - Expected behavior vs. actual behavior  
 - Environment details:
   - Node.js version  
+  - Enviroment
+  - Frameworks name if applicable
   - Package version  
   - Operating system  
 - Any error messages or console output  
@@ -387,7 +426,7 @@ Ensure that all tests pass before submitting any pull requests or publishing a n
 
 ## Copyright
 
-Copyright © 2025 Ajay Shukla. Released under the MIT [LICENSE](LICENSE).
+Copyright © 2025 Ajay Shukla. Released under the MIT LICENSE.
 
 ## License
 
